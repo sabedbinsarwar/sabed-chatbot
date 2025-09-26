@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Fire gradient animation */
+@keyframes fireGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.fire-text {
+  font-weight: bold;
+  font-size: 1.25rem;
+  background: linear-gradient(45deg, #ff0000, #ff9900, #ffff00, #ff3300);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fireGradient 1.5s linear infinite;
+  text-shadow:
+    0 0 5px #ff0000,
+    0 0 10px #ff6600,
+    0 0 15px #ff9900;
+}
+.neon-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow:
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #00ffff;
+  animation: neonFlicker 1.5s infinite alternate;
+}
+
+@keyframes neonFlicker {
+  0% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff; }
+  50% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 60px #00ffff; }
+  100% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff; }
+}
+/* Neon text glow */
+
+.neon-text {
+  color: #00ffff;
+  text-shadow:
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #00ffff;
+  font-size: 0.875rem; /* smaller text */
+  line-height: 1.2rem; /* proper spacing */
+}
+
+/* Neon suggestions glow */
+.neon-suggestions .neon-text {
+  color: #00ffff;
+  text-shadow:
+    0 0 2px #00ffff,
+    0 0 4px #00ffff,
+    0 0 6px #00ffff;
+  font-size: 0.875rem; /* smaller font for suggestions */
+  padding: 0.25rem 0.5rem; /* smaller padding */
+}
+
+.cyberpunk-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff00ff;
+  text-shadow:
+    0 0 5px #ff00ff,
+    0 0 10px #ff00ff,
+    0 0 20px #00ffff,
+    0 0 30px #00ffff,
+    0 0 40px #ff00ff,
+    0 0 55px #ff00ff,
+    0 0 75px #ff00ff;
+  animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.4;
+  }
+}
